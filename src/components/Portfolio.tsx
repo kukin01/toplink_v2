@@ -145,7 +145,7 @@ export default function Portfolio() {
               </div>
 
               <div className="flex min-h-0 flex-col justify-center bg-white px-6 py-7 text-[#01034F] sm:px-9 sm:py-9 lg:px-12 lg:py-12">
-                <p className="mb-4 font-inter text-xs font-bold uppercase tracking-[0.2em] text-[#9B8700]">
+                <p className="mb-4 font-inter text-xs font-bold uppercase tracking-[0.2em] text-yellow-400">
                   {project.category}
                 </p>
 
