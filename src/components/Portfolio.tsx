@@ -158,7 +158,7 @@ export default function Portfolio() {
                 </p>
 
                 <Link
-                  href={`/portfolio/${project.slug}`}
+                  href="/portfolio"
                   className="group inline-flex w-fit items-center gap-3 border-b border-[#01034F]/30 pb-2 font-karla text-base font-bold text-[#01034F] transition-colors duration-300 hover:border-[#B49A00] hover:text-[#9B8700]"
                 >
                   Explore More
