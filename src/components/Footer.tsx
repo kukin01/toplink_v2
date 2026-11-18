@@ -2,10 +2,10 @@ import { FaInstagram, FaLinkedinIn, FaXTwitter, FaWhatsapp } from "react-icons/f
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "FAQ", href: "#faq" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "#contact" },
 ];
 
