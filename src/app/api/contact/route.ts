@@ -31,8 +31,10 @@ export async function POST(request: Request) {
 
     let data: Record<string, unknown>;
 
-    if (contentType.includes("multipart/form-data") ||
-        contentType.includes("application/x-www-form-urlencoded")) {
+    if (
+      contentType.includes("multipart/form-data") ||
+      contentType.includes("application/x-www-form-urlencoded")
+    ) {
       const formData = await request.formData();
       data = {};
 
@@ -88,7 +90,7 @@ export async function POST(request: Request) {
       },
     });
 
-    const fields = [
+    const fields: [string, string][] = [
       ["Full name", fullName],
       ["Company", getValue(data.company)],
       ["Email", email],
@@ -104,7 +106,10 @@ export async function POST(request: Request) {
     ];
 
     const textContent = fields
-      .map(([label, value]) => `${label}:\n${value || "Not provided"}`)
+      .map(
+        ([label, value]) =>
+          `${label}:\n${value || "Not provided"}`
+      )
       .join("\n\n");
 
     const htmlContent = `
@@ -113,16 +118,20 @@ export async function POST(request: Request) {
         <p>You have received a new enquiry through your website.</p>
 
         <table style="width: 100%; border-collapse: collapse;">
-          ${fields.map(([label, value]) => `
-            <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">
-                ${escapeHtml(label)}
-              </td>
-              <td style="padding: 12px; border-bottom: 1px solid #eee; white-space: pre-wrap;">
-                ${escapeHtml(value || "Not provided")}
-              </td>
-            </tr>
-          `).join("")}
+          ${fields
+            .map(
+              ([label, value]) => `
+                <tr>
+                  <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">
+                    ${escapeHtml(label)}
+                  </td>
+                  <td style="padding: 12px; border-bottom: 1px solid #eee; white-space: pre-wrap;">
+                    ${escapeHtml(value || "Not provided")}
+                  </td>
+                </tr>
+              `
+            )
+            .join("")}
         </table>
       </div>
     `;
