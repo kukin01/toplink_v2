@@ -23,7 +23,6 @@ export default function Navbar({
     { href: "/about", label: "About" },
     { href: "/services", label: "Our Services" },
     { href: "#portfolio", label: "Portfolio" },
-    { href: "#contact", label: "Contact" },
   ];
 
   const handleScroll = (

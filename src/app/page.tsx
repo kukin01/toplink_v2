@@ -14,6 +14,7 @@ import ContactStepperModal from "@/components/ContactStepperModal";
 import Partners from "@/components/Partners";
 import ChooseUs from "@/components/ChooseUs";
 import Navbar from "@/components/navbar";
+import FAQ from "@/components/FAQ";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -123,12 +124,34 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-copy mt-6 flex max-w-[280px] flex-col items-start text-left md:mt-3">
+          <div className="hero-copy mt-6 flex w-full max-w-[300px] flex-col items-start gap-7 text-left md:mt-3">
             <p className="font-karla text-sm leading-relaxed text-white/80 md:text-base">
               A Kigali Studio that Builds Brands, Websites and Marketing. Delivered
               fast in one place with personal touch.
             </p>
+          
+            <div className="flex w-full flex-col">
+              {[
+                { number: "7+", label: "Years of expertise" },
+                { number: "100+", label: "Brands amplified" },
+                { number: "300K+", label: "Impressions generated" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex items-center justify-between gap-4 border-b border-white/20 py-3"
+                >
+                  <span className="font-karla text-sm text-white/65">
+                    {stat.label}
+                  </span>
+          
+                  <span className="font-karla text-2xl font-bold text-yellow-400 md:text-3xl">
+                    {stat.number}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
 
         {/* <ol className="absolute bottom-8 right-6 flex w-[calc(100%_-_3rem)] flex-col gap-3 text-white/90 md:bottom-12 md:right-12 md:w-[31rem]">
@@ -185,6 +208,9 @@ export default function Home() {
       </div>
       <div className="reveal w-full">
         <PricingSection />
+      </div>
+      <div className="w-full">
+        <FAQ />
       </div>
     </main>
   );

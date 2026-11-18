@@ -1,31 +1,80 @@
 
 "use client";
 
+import { useRef } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function ChooseUs() {
+  const container = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".choose-reveal", {
+        y: 35,
+        autoAlpha: 0,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    },
+    { scope: container }
+  );
+
   return (
-    <section className="w-full bg-[#01034F] px-6 py-20 text-white sm:px-8 md:px-12 md:py-28">
-      <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20 lg:gap-28">
+    <section
+      ref={container}
+      className="bg-[#01034F] px-6 py-16 text-white sm:px-10 md:py-20 lg:px-16"
+    >
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
-        <div className="flex flex-col">
-          <h2 className="mb-8 font-karla text-3xl font-bold text-yellow-400 tracking-tight text-white sm:text-4xl">
-            Why it should be us?
+        {/* LEFT SIDE */}
+        <div className="choose-reveal">
+          <h2 className="max-w-xl font-karla text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            Good work starts with the right team.
           </h2>
-          <span className="font-karla text-7xl font-bold leading-none tracking-tight text-white sm:text-8xl md:text-9xl">
-            7+
-          </span>
 
-          <p className="mt-4 font-karla text-lg font-medium tracking-wide text-white/65 sm:text-xl">
-            Years of expertise
-          </p>
+          <div className="mt-12 flex items-end gap-5 lg:mt-20">
+            <span className="font-karla text-6xl font-bold leading-none text-[#F5DC38] sm:text-7xl">
+              7+
+            </span>
+
+            <div className="pb-1">
+              <p className="font-karla text-lg font-semibold text-white">
+                Years of experience
+              </p>
+              <p className="mt-1 max-w-[220px] font-inter text-sm leading-relaxed text-white/60">
+                Helping businesses build, connect, and grow.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="max-w-2xl">
-          <p className="font-karla text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl md:leading-relaxed">
-            Great brands need more than good design. They need a clear vision,
-            thoughtful execution, and digital experiences that move people.
-            We bring it all together, helping businesses build stronger
-            identities, connect with their audiences, and grow with purpose.
+        {/* RIGHT SIDE */}
+        <div className="choose-reveal">
+          <p className="max-w-xl font-inter text-base leading-8 text-white/75 sm:text-lg">
+            From building memorable brands to creating powerful digital
+            experiences, we provide the creative and strategic solutions your
+            business needs to grow.
           </p>
+
+          <Link
+            href="/about"
+            className="mt-8 inline-flex items-center gap-3 font-karla text-base font-semibold text-[#F5DC38] transition-colors hover:text-white"
+          >
+            More about us
+            <ArrowUpRight size={19} />
+          </Link>
         </div>
 
       </div>

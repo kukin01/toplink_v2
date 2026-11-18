@@ -89,11 +89,6 @@ export default function AboutPage() {
 
           <div>
             <div className="mb-12">
-              <p className="mb-5 flex items-center gap-3 font-inter text-xs font-bold uppercase tracking-[0.22em] text-[#9B8700]">
-                <span className="h-2 w-2 rounded-full bg-[#F5DC38]" />
-                Who we are
-              </p>
-
               <h1 className="max-w-lg font-karla text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
                 More than a digital agency.
               </h1>

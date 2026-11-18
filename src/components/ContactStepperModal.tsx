@@ -105,7 +105,6 @@ const initialFormData: FormData = {
   additionalInfo: "",
 };
 
-// Reusable selectable card
 function ChoiceCard({
   label,
   description,
@@ -330,11 +329,8 @@ export default function ContactStepperModal({
 
               <div className="mb-7 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#01034F] text-white">
-                    <Sparkles size={18} />
-                  </div>
                   <span className="font-semibold tracking-tight">
-                    Toplink Digital
+                    Let's Connect
                   </span>
                 </div>
 

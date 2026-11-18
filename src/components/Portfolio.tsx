@@ -109,9 +109,6 @@ export default function Portfolio() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex flex-col justify-between gap-5 md:mb-12 md:flex-row md:items-end">
           <div>
-            <p className="mb-3 font-inter text-xs font-semibold uppercase tracking-[0.25em] text-[#F5DC38]">
-              Selected projects
-            </p>
 
             <h2 className="font-karla text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Our recent works
