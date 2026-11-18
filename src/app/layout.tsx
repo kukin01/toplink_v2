@@ -4,6 +4,7 @@ import { Inter, Karla } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +30,9 @@ export default function RootLayout({
       className={`h-full antialiased ${inter.variable} ${karla.variable}`}
     >
       <body className="flex min-h-full flex-col">
-        <Navbar hideOnHomePage />
+        <Suspense fallback={null}>
+          <Navbar hideOnHomePage />
+        </Suspense>
         {children}
         <Footer />
       </body>
