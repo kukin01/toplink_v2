@@ -125,11 +125,11 @@ export default function PortfolioPage() {
 
       <section className="px-5 pb-24 sm:px-8 md:px-12 md:pb-32">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 flex items-center justify-between">
+          {/* <div className="mb-10 flex items-center justify-between">
             <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-[#01034F]/50">
               Selected work
-            </p>
-          </div>
+            </p> */}
+          {/* </div> */}
 
           <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-12 md:gap-y-24">
             {projects.map((project, index) => {
