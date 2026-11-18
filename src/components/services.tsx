@@ -87,10 +87,10 @@ export default function Services() {
         </div>
       </div>
       <div className="grid w-full grid-cols-1 gap-15 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map(({ slug, service, stat, image, placeholder, description }) => (
+        {services.map(({ service, stat, image, placeholder, description }) => (
           <Link
             key={service}
-            href={`/services/${slug}`}
+            href="/services"
             className="service-card flex min-h-48 w-full flex-col items-start gap-5 rounded-3xl p-6 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             <div className="w-full items-center gap-3">
