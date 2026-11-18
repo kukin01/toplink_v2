@@ -193,7 +193,7 @@ export default function PortfolioPage() {
                           ))}
                         </div>
 
-                        <h2 className="font-karla text-2xl font-bold transition-colors duration-300 group-hover:text-[#9B8700] sm:text-3xl">
+                        <h2 className="font-karla text-2xl font-bold transition-colors duration-300 sm:text-3xl">
                           {project.name}
                         </h2>
 
