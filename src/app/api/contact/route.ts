@@ -2,7 +2,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export const runtime = "nodejs";
 
 function getValue(value: unknown): string {
   if (Array.isArray(value)) {
