@@ -130,7 +130,7 @@ export default function Home() {
               fast in one place with personal touch.
             </p>
           
-            <div className="flex w-full flex-col">
+            <div className="mt-5 flex w-full max-w-[260px] flex-col">
               {[
                 { number: "7+", label: "Years of expertise" },
                 { number: "100+", label: "Brands amplified" },
@@ -138,13 +138,13 @@ export default function Home() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex items-center justify-between gap-4 border-b border-white/20 py-3"
+                  className="flex items-center justify-between border-b border-white/15 py-3"
                 >
-                  <span className="font-karla text-sm text-white/65">
+                  <span className="font-karla text-sm text-white/55">
                     {stat.label}
                   </span>
-          
-                  <span className="font-karla text-2xl font-bold text-yellow-400 md:text-3xl">
+            
+                  <span className="font-karla text-xl font-semibold text-white">
                     {stat.number}
                   </span>
                 </div>
