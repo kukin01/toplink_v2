@@ -22,7 +22,7 @@ export default function Navbar({
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Our Services" },
-    { href: "#portfolio", label: "Portfolio" },
+    { href: "/portfolio", label: "Portfolio" },
   ];
 
   const handleScroll = (
