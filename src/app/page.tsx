@@ -102,12 +102,12 @@ export default function Home() {
         <Navbar />
       </div>
 
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-[100svh] min-h-[44rem] w-full overflow-hidden md:h-screen md:min-h-[40rem]">
         <WavesBackground />
 
-        <div className="absolute inset-x-0 top-[18%] flex items-start justify-between gap-8 px-6 md:px-12">
-          <div className="flex max-w-[540px] flex-col items-start gap-6">
-            <h1 className="hero-title font-karla text-[clamp(2.5rem,6vw,5rem)] font-bold uppercase leading-[0.9] tracking-[-0.06em] text-white/90">
+        <div className="absolute inset-x-0 top-[14%] flex flex-col items-start gap-7 px-5 sm:px-8 lg:top-[18%] lg:flex-row lg:justify-between lg:gap-8 lg:px-12">
+          <div className="flex w-full max-w-[540px] flex-col items-start gap-6">
+            <h1 className="hero-title font-karla text-[clamp(2.5rem,10vw,5rem)] font-bold uppercase leading-[0.9] tracking-[-0.06em] text-white/90 sm:text-[clamp(3rem,6vw,5rem)]">
               Your <span className="text-yellow-400">Business</span> in One first call.
             </h1>
             <div className="hero-cta">
@@ -124,13 +124,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-copy mt-6 flex w-full max-w-[300px] flex-col items-start gap-7 text-left md:mt-3">
+          <div className="hero-copy flex w-full max-w-[420px] flex-col items-start gap-4 text-left lg:mt-3 lg:max-w-[300px] lg:gap-7">
             <p className="font-karla text-sm leading-relaxed text-white/80 md:text-base">
               A Kigali Studio that Builds Brands, Websites and Marketing. Delivered
               fast in one place with personal touch.
             </p>
           
-            <div className="mt-5 flex w-full max-w-[260px] flex-col">
+            <div className="flex w-full max-w-[300px] flex-col lg:mt-5 lg:max-w-[260px]">
               {[
                 { number: "7+", label: "Years of expertise" },
                 { number: "100+", label: "Brands amplified" },
