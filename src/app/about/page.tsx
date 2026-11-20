@@ -79,11 +79,11 @@ export default function AboutPage() {
   return (
     <main
       ref={pageRef}
-      className="w-full overflow-hidden bg-white text-[#01034F]"
+      className="w-full overflow-hidden bg-white text-[#030912]"
     >
       <section
         id="who-we-are"
-        className="px-5 pt-10 pb-24 sm:px-8 md:px-12 md:pt-16 md:pb-36"
+        className="px-5 pb-8 pt-28 sm:px-8 md:px-32 md:pb-10 md:pt-32"
       >
         <div className="mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-2 lg:gap-20">
 
@@ -129,14 +129,14 @@ export default function AboutPage() {
                 create experiences that move businesses forward.
               </p>
 
-              <p className="font-inter text-sm leading-8 text-[#01034F]/65 sm:text-base">
+              <p className="font-inter text-sm leading-8 text-[#030912]/65 sm:text-base">
                 At Toplink Digital, we believe great digital work starts with
                 understanding the bigger picture. A strong brand needs more
                 than a logo. A website needs more than good visuals. And growth
                 requires more than simply being online.
               </p>
 
-              <p className="font-inter text-sm leading-8 text-[#01034F]/65 sm:text-base">
+              <p className="font-inter text-sm leading-8 text-[#030912]/65 sm:text-base">
                 That is why we connect creative thinking, digital design,
                 development, and marketing into a more unified approach. Our
                 goal is to help businesses communicate clearly, create
@@ -144,17 +144,17 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="about-stats mt-12 border-t border-[#01034F]/15">
+            <div className="about-stats mt-12 border-t border-[#1B354D]/15">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="about-stat flex items-center justify-between gap-4 border-b border-[#01034F]/15 py-5"
+                  className="about-stat flex items-center justify-between gap-4 border-b border-[#1B354D]/15 py-5"
                 >
-                  <p className="font-inter text-xs font-semibold uppercase tracking-[0.12em] text-[#01034F]/60 sm:text-sm">
+                  <p className="font-inter text-xs font-semibold uppercase tracking-[0.12em] text-[#030912]/60 sm:text-sm">
                     {stat.label}
                   </p>
 
-                  <p className="whitespace-nowrap font-karla text-3xl font-bold tracking-tight text-[#01034F] sm:text-4xl">
+                  <p className="whitespace-nowrap font-karla text-3xl font-bold tracking-tight text-[#030912] sm:text-4xl">
                     {stat.number}
                   </p>
                 </div>

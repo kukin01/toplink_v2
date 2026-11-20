@@ -37,8 +37,8 @@ export default function PricingSection() {
     <section className="w-full bg-white px-6 py-5 md:px-12 md:py-15">
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <span className="py-3 px-5 border-1  border-[#01034F] rounded-[2rem]">Pricing plan</span>
-          <h2 className="mt-4 font-karla text-3xl font-bold leading-tight tracking-tight text-[#01034F] md:text-4xl">
+          <span className="py-3 px-5 border-1  border-[#1B354D] rounded-[2rem]">Pricing plan</span>
+          <h2 className="mt-4 font-karla text-3xl font-bold leading-tight tracking-tight text-[#030912] md:text-4xl">
             Explore Our Plans and Pricing
           </h2>
           <p className="mt-2 font-karla text-base text-gray-600 md:text-lg">
@@ -49,7 +49,7 @@ export default function PricingSection() {
             aria-label="Billing period"
             className="mt-3 flex items-center justify-center gap-4 font-karla inter text-sm font-semibold"
           >
-            <span className={!isYearly ? "text-[#01034F]" : "text-gray-500"}>
+            <span className={!isYearly ? "text-[#030912]" : "text-gray-500"}>
               Monthly
             </span>
             <button
@@ -58,15 +58,15 @@ export default function PricingSection() {
               aria-checked={isYearly}
               aria-label="Yearly billing"
               onClick={() => setIsYearly((yearly) => !yearly)}
-              className="relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full p-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01034F]"
+              className="relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full p-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#030912]"
             >
               <span
-                className={`h-5 w-5 rounded-full bg-yellow-400 transition-transform ${
+                className={`h-5 w-5 rounded-full bg-[#FFC400] transition-transform ${
                   isYearly ? "translate-x-5" : "translate-x-0"
                 }`}
               />
             </button>
-            <span className={isYearly ? "text-[#01034F]" : "text-gray-500"}>
+            <span className={isYearly ? "text-[#030912]" : "text-gray-500"}>
               Yearly
             </span>
           </div>
@@ -76,7 +76,7 @@ export default function PricingSection() {
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className="flex h-full rounded-2xl flex-col border border-white/20 bg-[#01034F] p-3 text-white"
+              className="flex h-full rounded-2xl flex-col border border-[#1B354D] bg-[#030912] p-3 text-white"
             >
               <div className="rounded-2xl bg-white/10 p-6">
                 <h3 className="font-karla text-md font-semibold text-white/80">
@@ -98,14 +98,14 @@ export default function PricingSection() {
               <div className="px-3 pt-5">
                 <ContactStepperModal
                   trigger={
-                    <Button className="w-full rounded-lg bg-yellow-400 px-5 py-3 font-karla text-sm font-bold uppercase tracking-wide text-[#01034F] transition-colors hover:bg-yellow-300">
+                    <Button className="w-full rounded-lg bg-[#FFC400] px-5 py-3 font-karla text-sm font-bold uppercase tracking-wide text-[#030912] transition-colors hover:bg-[#E5AD00]">
                       Get started
                     </Button>
                   }
                 />
               </div>
 
-              <div className="mt-6 flex-1 border-t border-white/20 px-3 pt-5 pb-3">
+              <div className="mt-6 flex-1 border-t border-[#1B354D] px-3 pt-5 pb-3">
                 <h4 className="font-karla text-sm font-semibold uppercase tracking-wide text-center text-white/80">
                   — Features —
                 </h4>

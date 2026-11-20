@@ -96,12 +96,11 @@ export default function PortfolioPage() {
   return (
     <main
       ref={pageRef}
-      className="min-h-screen w-full overflow-hidden bg-white text-[#01034F]"
+      className="min-h-screen w-full overflow-hidden bg-white text-[#030912]"
     >
-      {/* Page introduction */}
-      <section className="px-5 pb-8 pt-12 sm:px-8 md:px-12 md:pb-10 md:pt-16">
+      <section className="px-5 pb-8 pt-28 sm:px-8 md:px-12 md:pb-10 md:pt-32">
         <div className="portfolio-intro mx-auto max-w-6xl">
-          <p className="mb-5 font-inter text-xs font-bold uppercase tracking-[0.25em] text-[#01034F]/65">
+          <p className="mb-5 font-inter text-xs font-bold uppercase tracking-[0.25em] text-[#030912]/65">
             Our portfolio
           </p>
 
@@ -109,24 +108,24 @@ export default function PortfolioPage() {
             <h1 className="max-w-3xl font-karla text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               Ideas brought
               <br />
-              to <span className="text-yellow-400">life.</span>
+              to <span className="text-[#FFC400]">life.</span>
             </h1>
 
-            <p className="max-w-md font-inter text-sm leading-8 text-[#01034F]/65 md:justify-self-end md:text-base">
+            <p className="max-w-md font-inter text-sm leading-8 text-[#030912]/65 md:justify-self-end md:text-base">
               Every project is an opportunity to create something meaningful.
               Explore a selection of work shaped by creativity, strategy, and
               attention to detail.
             </p>
           </div>
 
-          <div className="mt-8 h-px w-full bg-[#01034F]/15 md:mt-10" />
+          <div className="mt-8 h-px w-full bg-[#1B354D]/15 md:mt-10" />
         </div>
       </section>
 
       <section className="px-5 pb-24 sm:px-8 md:px-12 md:pb-32">
         <div className="mx-auto max-w-6xl">
           {/* <div className="mb-10 flex items-center justify-between">
-            <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-[#01034F]/50">
+            <p className="font-inter text-xs font-semibold uppercase tracking-[0.2em] text-[#030912]/50">
               Selected work
             </p> */}
           {/* </div> */}
@@ -173,9 +172,9 @@ export default function PortfolioPage() {
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
 
-                      <div className="absolute inset-0 bg-[#01034F]/0 transition-colors duration-500 group-hover:bg-[#01034F]/10" />
+                      <div className="absolute inset-0 bg-[#030912]/0 transition-colors duration-500 group-hover:bg-[#030912]/10" />
 
-                      <div className="absolute bottom-5 right-5 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-white text-[#01034F] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      <div className="absolute bottom-5 right-5 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-white text-[#030912] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                         <ArrowUpRight size={21} />
                       </div>
                     </div>
@@ -186,7 +185,7 @@ export default function PortfolioPage() {
                           {project.categories.map((category) => (
                             <span
                               key={category}
-                              className="rounded-full border border-[#01034F]/25 px-3 py-1 font-inter text-[10px] font-bold uppercase tracking-[0.12em] text-[#01034F]/70"
+                              className="rounded-full border border-[#1B354D]/25 px-3 py-1 font-inter text-[10px] font-bold uppercase tracking-[0.12em] text-[#030912]/70"
                             >
                               {category}
                             </span>
@@ -197,7 +196,7 @@ export default function PortfolioPage() {
                           {project.name}
                         </h2>
 
-                        <p className="mt-3 max-w-md font-inter text-sm leading-7 text-[#01034F]/60">
+                        <p className="mt-3 max-w-md font-inter text-sm leading-7 text-[#030912]/60">
                           {project.description}
                         </p>
                       </div>

@@ -38,7 +38,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <Suspense fallback={null}>
-          <Navbar hideOnHomePage />
+          <Navbar />
         </Suspense>
         {children}
         <Footer />

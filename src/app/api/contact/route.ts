@@ -112,8 +112,8 @@ export async function POST(request: Request) {
       .join("\n\n");
 
     const htmlContent = `
-      <div style="font-family: Arial, sans-serif; color: #01034F; max-width: 650px;">
-        <h2 style="color: #01034F;">New project enquiry</h2>
+      <div style="font-family: Arial, sans-serif; color: #030912; max-width: 650px;">
+        <h2 style="color: #030912;">New project enquiry</h2>
         <p>You have received a new enquiry through your website.</p>
 
         <table style="width: 100%; border-collapse: collapse;">

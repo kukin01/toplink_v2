@@ -28,16 +28,16 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section className="w-full bg-white px-6 py-16 text-[#01034F] md:px-12 md:py-20">
+    <section className="w-full bg-white px-6 py-16 text-[#030912] md:px-12 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
 
         <div className="flex flex-col items-start">
           <h2 className="max-w-md font-karla text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
             Got questions?
-            <span className="text-[#B8A300]"> We've got answers.</span>
+            <span className="text-[#E5AD00]"> We've got answers.</span>
           </h2>
 
-          <p className="mt-4 max-w-sm font-inter text-sm leading-7 text-[#01034F]/60 md:text-base">
+          <p className="mt-4 max-w-sm font-inter text-sm leading-7 text-[#030912]/60 md:text-base">
             Everything you need to know before getting started with Toplink
             Digital. Can't find what you're looking for? Get in touch with us.
           </p>
@@ -46,23 +46,23 @@ export default function FAQ() {
             trigger={
               <button
                 type="button"
-                className="mt-5 inline-flex items-center gap-3 rounded-full bg-[#01034F] px-7 py-3 font-karla text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#01034F]/85"
+                className="mt-5 inline-flex items-center gap-3 rounded-full bg-[#030912] px-7 py-3 font-karla text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#061321]"
               >
                 Talk to us
-                <span className="text-yellow-400">↗</span>
+                <span className="text-[#FFC400]">↗</span>
               </button>
             }
           />
         </div>
 
-        <div className="border-t border-[#01034F]/15">
+        <div className="border-t border-[#1B354D]/15">
           {questions.map((item, index) => {
             const isOpen = activeIndex === index;
 
             return (
               <div
                 key={item.qn}
-                className="border-b border-[#01034F]/15"
+                className="border-b border-[#1B354D]/15"
               >
                 <button
                   type="button"
@@ -73,7 +73,7 @@ export default function FAQ() {
                   className="flex w-full items-center justify-between gap-6 py-5 text-left"
                 >
                   <span className="flex items-start gap-5">
-                    <span className="pt-1 font-inter text-xs font-semibold text-[#B8A300]">
+                    <span className="pt-1 font-inter text-xs font-semibold text-[#E5AD00]">
                       0{index + 1}
                     </span>
 
@@ -82,7 +82,7 @@ export default function FAQ() {
                     </span>
                   </span>
 
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#01034F]/5 text-[#01034F] transition-colors">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#030912]/5 text-[#030912] transition-colors">
                     {isOpen ? (
                       <Minus size={17} />
                     ) : (
@@ -97,7 +97,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-xl pb-5 pl-10 font-inter text-sm leading-7 text-[#01034F]/60 sm:pl-12 sm:text-base">
+                    <p className="max-w-xl pb-5 pl-10 font-inter text-sm leading-7 text-[#030912]/60 sm:pl-12 sm:text-base">
                       {item.ans}
                     </p>
                   </div>

@@ -123,8 +123,8 @@ function ChoiceCard({
       aria-pressed={selected}
       className={`group flex w-full items-start justify-between gap-3 rounded-xl border p-4 text-left transition-all duration-200 ${
         selected
-          ? "border-[#01034F] bg-[#01034F] text-white shadow-md"
-          : "border-gray-200 bg-white text-gray-800 hover:border-[#01034F]/50 hover:bg-gray-50"
+          ? "border-[#030912] bg-[#030912] text-white shadow-md"
+          : "border-[#1B354D]/25 bg-white text-gray-800 hover:border-[#1B354D] hover:bg-gray-50"
       }`}
     >
       <span className="min-w-0">
@@ -146,8 +146,8 @@ function ChoiceCard({
       <span
         className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
           selected
-            ? "border-white bg-white text-[#01034F]"
-            : "border-gray-300"
+            ? "border-[#1B354D] bg-white text-[#030912]"
+            : "border-[#1B354D]/25"
         }`}
       >
         {selected && <Check size={13} strokeWidth={3} />}
@@ -297,7 +297,7 @@ export default function ContactStepperModal({
       <DialogTrigger
         render={
           trigger ?? (
-            <Button className="bg-[#01034F] px-7 py-6 text-white hover:bg-[#01034F]/90">
+            <Button className="bg-[#030912] px-7 py-6 text-white hover:bg-[#061321]">
               Start a project
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -311,11 +311,11 @@ export default function ContactStepperModal({
           !flex-col
           !w-[95vw]
           !max-w-2xl
-          h-[92vh]
+          h-[70vh]
           max-h-[92vh]
           overflow-hidden
           rounded-2xl
-          border border-gray-100
+          border border-[#1B354D]/20
           bg-white
           p-0
           text-gray-900
@@ -325,7 +325,7 @@ export default function ContactStepperModal({
       >
         {!submitted ? (
           <div className="flex min-h-0 flex-1 flex-col">
-            <div className="shrink-0 border-b border-gray-100 px-6 pb-6 pt-7 sm:px-9 sm:pt-9">
+            <div className="shrink-0 border-b border-[#1B354D]/20 px-6 pb-6 pt-7 sm:px-9 sm:pt-9">
 
               <div className="mb-7 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -348,7 +348,7 @@ export default function ContactStepperModal({
                     <div
                       className={`h-full rounded-full transition-all duration-300 ${
                         index < step
-                          ? "bg-[#01034F]"
+                          ? "bg-[#030912]"
                           : "bg-transparent"
                       }`}
                     />
@@ -362,7 +362,7 @@ export default function ContactStepperModal({
                     key={item}
                     className={`text-xs font-medium text-karla ${
                       step === index + 1
-                        ? "text-[#01034F]"
+                        ? "text-[#030912]"
                         : index + 1 < step
                         ? "text-gray-500"
                         : "text-gray-300"
@@ -379,12 +379,6 @@ export default function ContactStepperModal({
               {step === 1 && (
                 <div className="space-y-7">
                   <div>
-                    <p className="mb-2 text-xs font-semibold text-inter uppercase tracking-[0.18em] text-[#01034F]">
-                      First things first
-                    </p>
-                    <h2 className="text-2xl font-bold tracking-tight text-inter sm:text-3xl">
-                      Let's get to know you.
-                    </h2>
                     <p className="mt-2 text-sm leading-6 text-gray-500 text-karla">
                       Tell us a little about yourself and your business.
                     </p>
@@ -456,7 +450,7 @@ export default function ContactStepperModal({
               {step === 2 && (
                 <div className="space-y-7">
                   <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#01034F]">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#030912]">
                       Your needs
                     </p>
                     <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -480,7 +474,7 @@ export default function ContactStepperModal({
                   </div>
 
                   {SERVICES.length === 0 && (
-                    <div className="rounded-xl border border-dashed border-gray-300 p-6 text-center text-sm text-gray-500">
+                    <div className="rounded-xl border border-dashed border-[#1B354D]/30 p-6 text-center text-sm text-gray-500">
                       Add your services to the SERVICES array in this component.
                     </div>
                   )}
@@ -494,7 +488,7 @@ export default function ContactStepperModal({
               {step === 3 && (
                 <div className="space-y-7">
                   <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#01034F]">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#030912]">
                       Your vision
                     </p>
                     <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -578,7 +572,7 @@ export default function ContactStepperModal({
               {step === 4 && (
                 <div className="space-y-7">
                   <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#01034F]">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#030912]">
                       One last thing
                     </p>
                     <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -638,7 +632,7 @@ export default function ContactStepperModal({
                   <div className="rounded-xl bg-gray-50 p-4">
                     <div className="flex items-start gap-3">
                       <CheckCircle2
-                        className="mt-0.5 shrink-0 text-[#01034F]"
+                        className="mt-0.5 shrink-0 text-[#030912]"
                         size={19}
                       />
                       <p className="text-xs leading-5 text-gray-500">
@@ -659,7 +653,7 @@ export default function ContactStepperModal({
                 </p>
               )}
 
-              <div className="mt-9 flex items-center justify-between gap-4 border-t border-gray-100 pt-6">
+              <div className="mt-9 flex items-center justify-between gap-4 border-t border-[#1B354D]/20 pt-6">
                 <Button
                   type="button"
                   variant="outline"
@@ -675,7 +669,7 @@ export default function ContactStepperModal({
                   <Button
                     type="button"
                     onClick={handleNext}
-                    className="gap-2 bg-[#01034F] px-6 text-white hover:bg-[#01034F]/90"
+                    className="gap-2 bg-[#030912] px-6 text-white hover:bg-[#061321]"
                   >
                     Continue
                     <ArrowRight size={16} />
@@ -685,7 +679,7 @@ export default function ContactStepperModal({
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="gap-2 bg-[#01034F] px-6 text-white hover:bg-[#01034F]/90"
+                    className="gap-2 bg-[#030912] px-6 text-white hover:bg-[#061321]"
                   >
                     {isSubmitting ? "Submitting..." : "Submit inquiry"}
                     <ArrowRight size={16} />
@@ -696,14 +690,14 @@ export default function ContactStepperModal({
           </div>
         ) : (
           <div className="flex flex-col items-center px-6 py-16 text-center sm:px-12">
-            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#01034F]/10">
+            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#030912]/10">
               <CheckCircle2
                 size={40}
-                className="text-[#01034F]"
+                className="text-[#030912]"
               />
             </div>
 
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#01034F]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#030912]">
               Inquiry received
             </p>
 
@@ -719,7 +713,7 @@ export default function ContactStepperModal({
 
             <Button
               onClick={() => handleOpenChange(false)}
-              className="mt-8 bg-[#01034F] px-8 text-white hover:bg-[#01034F]/90"
+              className="mt-8 bg-[#030912] px-8 text-white hover:bg-[#061321]"
             >
               Done
             </Button>

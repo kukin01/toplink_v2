@@ -27,7 +27,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 w-full bg-[#01034F] p-5 text-white sm:px-8 md:px-20">
+    <footer className="relative z-10 w-full bg-[#030912] p-5 text-white sm:px-8 md:px-20">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
         <div>
           <img
@@ -39,13 +39,13 @@ export default function Footer() {
           <div className="mt-8 break-words text-md sm:text-lg md:text-xl">
             <a
               href="tel:+250780716326"
-              className="block text-white/90 transition-colors duration-300 hover:text-[#FFCE3C]"
+              className="block text-white/90 transition-colors duration-300 hover:text-[#FFC400]"
             >
               +250 780 716 326
             </a>
             <a
               href="mailto:info@toplinkdigital.com"
-              className="mt-2 block text-white/90 transition-colors duration-300 hover:text-[#FFCE3C]"
+              className="mt-2 block text-white/90 transition-colors duration-300 hover:text-[#FFC400]"
             >
               info@toplinkdigital.com
             </a>
@@ -58,7 +58,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition-colors duration-300 hover:border-[#FFCE3C] hover:text-[#FFCE3C]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#1B354D] text-white transition-colors duration-300 hover:border-[#FFC400] hover:text-[#FFC400]"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 gap-8 mt-10 md:justify-items-end">
           <div>
-            <h3 className="mb-4 text-lg text-inter font-semibold uppercase tracking-wider text-[#FFCE3C]">
+            <h3 className="mb-4 text-lg text-inter font-semibold uppercase tracking-wider text-[#FFC400]">
               Navigation
             </h3>
             <ul className="flex flex-col gap-1 text-white/70">
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg text-inter font-semibold uppercase tracking-wider text-[#FFCE3C]">
+            <h3 className="mb-4 text-lg text-inter font-semibold uppercase tracking-wider text-[#FFC400]">
               Services
             </h3>
             <ul className="flex flex-col gap-1 text-white/70">
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-5 text-center border-t border-white/10 pt-6 text-sm text-white/50">
+      <div className="mt-5 text-center border-t border-[#1B354D] pt-6 text-sm text-white/50">
         © 2026 TopLink Digital. All rights reserved.
       </div>
     </footer>

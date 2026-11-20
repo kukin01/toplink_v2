@@ -277,14 +277,14 @@ export default function ServicesPage() {
 
   return (
     <main ref={mainRef} className="bg-white">
-      <section className="px-6 pt-12 pb-24 text-white md:px-16 lg:px-24 lg:pt-20 lg:pb-36">
+      <section className="px-6 pt-28 pb-24 text-white md:px-16 md:pt-32 lg:px-24 lg:pb-36">
         <div className="mx-auto grid max-w-7xl items-end gap-12 md:grid-cols-2">
           <h1
             ref={headlineRef}
-            className="text-6xl font-bold leading-[0.95] tracking-tight text-[#01034F] sm:text-7xl lg:text-[100px]"
+            className="text-6xl font-bold leading-[0.95] tracking-tight text-[#030912] sm:text-7xl lg:text-[100px]"
           >
             Our Company
-            <span className="mt-3 block text-[#01034F]">
+            <span className="mt-3 block text-[#030912]">
               Services
             </span>
           </h1>
@@ -292,7 +292,7 @@ export default function ServicesPage() {
           <div className="pb-2 md:pl-12">
             <p
               ref={subheadlineRef}
-              className="mt-6 max-w-md text-base leading-8 text-[#01034F]"
+              className="mt-6 max-w-md text-base leading-8 text-[#030912]"
             >
               From building memorable brands to creating powerful digital
               experiences, we provide the creative and strategic solutions
@@ -302,7 +302,7 @@ export default function ServicesPage() {
             <div ref={buttonRef}>
               <Link
                 href="/contact"
-                className="mt-9 inline-flex items-center gap-3 rounded-full border border-white/30 bg-yellow-400 px-7 py-4 text-sm font-semibold text-[#01034F] transition"
+                className="mt-9 inline-flex items-center gap-3 rounded-full border border-[#1B354D] bg-[#FFC400] px-7 py-4 text-sm font-semibold text-[#030912] transition hover:bg-[#E5AD00]"
               >
                 Let's work together
                 <ArrowUpRight size={18} />
@@ -321,7 +321,7 @@ export default function ServicesPage() {
                 className="service-card grid items-start gap-10 lg:grid-cols-2 lg:gap-20"
               >
                 <div
-                  className={`service-image group relative overflow-hidden rounded-[28px] bg-[#01034F] ${
+                  className={`service-image group relative overflow-hidden rounded-[28px] bg-[#030912] ${
                     index % 2 !== 0 ? "lg:order-2" : ""
                   }`}
                 >
@@ -337,7 +337,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="service-content">
-                  <h3 className="mb-5 text-4xl font-bold tracking-tight text-[#01034F] sm:text-5xl text-inter">
+                  <h3 className="mb-5 text-4xl font-bold tracking-tight text-[#030912] sm:text-5xl text-inter">
                     {service.service}
                   </h3>
 
@@ -345,7 +345,7 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
 
-                  <div className="border-t border-gray-200">
+                  <div className="border-t border-[#1B354D]/20">
                     {service.details.map((detail, detailIndex) => {
                       const key = `${index}-${detailIndex}`;
                       const isOpen = !!openItems[key];
@@ -353,7 +353,7 @@ export default function ServicesPage() {
                       return (
                         <div
                           key={detail.title}
-                          className="border-b border-gray-200"
+                          className="border-b border-[#1B354D]/20"
                         >
                           <button
                             type="button"
@@ -363,7 +363,7 @@ export default function ServicesPage() {
                             aria-expanded={isOpen}
                             className="flex w-full items-center justify-between gap-5 py-5 text-left"
                           >
-                            <span className="text-xl font-semibold text-[#01034F] transition text-inter">
+                            <span className="text-xl font-semibold text-[#030912] transition text-inter">
                               {detail.title}
                             </span>
 

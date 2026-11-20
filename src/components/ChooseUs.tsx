@@ -34,7 +34,7 @@ export default function ChooseUs() {
   return (
     <section
       ref={container}
-      className="bg-[#01034F] px-6 py-16 text-white sm:px-10 md:py-20 lg:px-16"
+      className="bg-[#030912] px-6 py-16 text-white sm:px-10 md:py-20 lg:px-16"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
@@ -45,7 +45,7 @@ export default function ChooseUs() {
           </h2>
 
           <div className="mt-12 flex items-end gap-5 lg:mt-20">
-            <span className="font-karla text-6xl font-bold leading-none text-[#F5DC38] sm:text-7xl">
+            <span className="font-karla text-6xl font-bold leading-none text-[#FFC400] sm:text-7xl">
               7+
             </span>
 
@@ -70,7 +70,7 @@ export default function ChooseUs() {
 
           <Link
             href="/about"
-            className="mt-8 inline-flex items-center gap-3 font-karla text-base font-semibold text-[#F5DC38] transition-colors hover:text-white"
+            className="mt-8 inline-flex items-center gap-3 font-karla text-base font-semibold text-[#FFC400] transition-colors hover:text-white"
           >
             More about us
             <ArrowUpRight size={19} />

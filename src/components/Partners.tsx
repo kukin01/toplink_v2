@@ -66,7 +66,7 @@ export default function Partners() {
     <section className="w-full overflow-hidden bg-white px-6 py-12 md:px-12 md:py-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col items-center justify-center gap-4 text-center">
-          <h2 className="max-w-xl font-karla text-4xl font-bold leading-tight tracking-tight text-[#01034F] md:text-6xl">
+          <h2 className="max-w-xl font-karla text-4xl font-bold leading-tight tracking-tight text-[#030912] md:text-6xl">
             Meet our Partners
           </h2>
           <p className="max-w-md text-sm leading-8 text-gray-600 md:text-base">

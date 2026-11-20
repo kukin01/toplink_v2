@@ -5,7 +5,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Button } from "@base-ui/react";
 import WavesBackground from "@/components/WavesBackground";
 import Services from "@/components/services";
 import PricingSection from "@/components/PricingSection";
@@ -13,8 +12,8 @@ import Portfolio from "@/components/Portfolio";
 import ContactStepperModal from "@/components/ContactStepperModal";
 import Partners from "@/components/Partners";
 import ChooseUs from "@/components/ChooseUs";
-import Navbar from "@/components/navbar";
 import FAQ from "@/components/FAQ";
+import { BriefcaseBusiness } from "lucide-react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -30,33 +29,63 @@ const services = [
 export default function Home() {
   const container = useRef<HTMLElement>(null);
 
+
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-
+  
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-        tl.from(".nav-wrap", { y: -60, autoAlpha: 0, duration: 0.8 })
-          .from(".hero-title", { y: 80, autoAlpha: 0, duration: 1 }, "-=0.4")
-          .from(".hero-cta", { y: 30, autoAlpha: 0, duration: 0.7 }, "-=0.6")
-          .from(".hero-copy", { x: 40, autoAlpha: 0, duration: 0.8 }, "-=0.7")
+        const heroTimeline = gsap.timeline({
+          defaults: { ease: "power3.out" },
+        });
+  
+        heroTimeline
+          .from(".hero-word", {
+            y: 70,
+            autoAlpha: 0,
+            duration: 0.85,
+            stagger: 0.2,
+            clearProps: "all",
+          })
           .from(
-            ".service-item",
-            { x: 40, autoAlpha: 0, duration: 0.6, stagger: 0.1 },
-            "-=0.6"
+            ".hero-copy",
+            {
+              y: 25,
+              autoAlpha: 0,
+              duration: 0.7,
+              stagger: 0.2,
+              clearProps: "all",
+            },
+            "-=0.2"
           )
           .from(
-            ".service-line",
+            ".hero-detail",
             {
-              scaleX: 0,
-              transformOrigin: "left center",
-              duration: 0.6,
-              stagger: 0.1,
+              y: 20,
+              autoAlpha: 0,
+              duration: 0.65,
+              clearProps: "all",
             },
-            "<"
+            "-=0.2"
+          )
+          .from(
+            ".hero-cta",
+            {
+              y: 25,
+              autoAlpha: 0,
+              duration: 0.7,
+              clearProps: "all",
+            },
+            "-=0.2"
           );
 
+        ScrollTrigger.create({
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          onEnterBack: () => heroTimeline.restart(),
+        });
+  
         gsap
           .timeline({
             scrollTrigger: {
@@ -66,13 +95,22 @@ export default function Home() {
             },
             defaults: { ease: "power3.out" },
           })
-          .from(".about-title", { y: 60, autoAlpha: 0, duration: 0.9 })
+          .from(".about-title", {
+            y: 60,
+            autoAlpha: 0,
+            duration: 0.9,
+          })
           .from(
             ".about-item",
-            { y: 40, autoAlpha: 0, duration: 0.7, stagger: 0.15 },
+            {
+              y: 40,
+              autoAlpha: 0,
+              duration: 0.7,
+              stagger: 0.15,
+            },
             "-=0.5"
           );
-
+  
         gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
           gsap.from(el, {
             y: 70,
@@ -87,94 +125,66 @@ export default function Home() {
           });
         });
       });
-
+  
       return () => mm.revert();
     },
     { scope: container }
   );
+
 
   return (
     <main
       ref={container}
       className="flex flex-col justify-center items-center overflow-hidden"
     >
-      <div className="nav-wrap absolute top-0 inset-x-0 z-50">
-        <Navbar />
-      </div>
-
-      <section className="relative h-[100svh] min-h-[44rem] w-full overflow-hidden md:h-screen md:min-h-[40rem]">
+      <section className="hero-section relative h-[100svh] bg-[#030912] min-h-[44rem] w-full overflow-hidden md:h-screen md:min-h-[40rem]">
         <WavesBackground />
 
-        <div className="absolute inset-x-0 top-[14%] flex flex-col items-start gap-7 px-5 sm:px-8 lg:top-[18%] lg:flex-row lg:justify-between lg:gap-8 lg:px-12">
-          <div className="flex w-full max-w-[540px] flex-col items-start gap-6">
-            <h1 className="hero-title font-karla text-[clamp(2.5rem,10vw,5rem)] font-bold uppercase leading-[0.9] tracking-[-0.06em] text-white/90 sm:text-[clamp(3rem,6vw,5rem)]">
-              Your <span className="text-yellow-400">Business</span> in One first call.
-            </h1>
-            <div className="hero-cta">
-              <ContactStepperModal
-                trigger={
-                  <Button
-                    type="button"
-                    className="rounded-full bg-yellow-400 px-6 py-3 font-karla text-sm font-bold uppercase tracking-wide text-[#01034F] transition-colors hover:bg-yellow-300"
-                  >
-                    Let&apos;s talk
-                  </Button>
-                }
-              />
+
+        <div className="absolute inset-0 flex items-center px-5 sm:px-8 lg:px-12">
+          <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-4 md:grid-cols-[0.2fr_auto] md:gap-10 lg:gap-20">
+            <div className="hero-title">
+              <p className="text-white/65 text-[13px] tracking-[0.12em] leading-relaxed text-sm hero-copy">
+                [a kigali studio that designs, develop and bring to market your business]
+              </p>
+              <h1 className="hero-word text-[clamp(3.5rem,8vw,8rem)] font-bold uppercase leading-[0.85] tracking-[-0.075em] text-white">
+                Brand
+              </h1>
+            </div>
+
+            <div className="flex flex-col items-start gap-4 md:items-end md:text-right">        
+              <div className=" mt-10 flex flex-col justify-center leading-[0.85] tracking-[-0.075em] text-white">
+                <p className="hero-copy mb-3 w-32 text-left text-[10px] leading-relaxed tracking-[0.12em] text-white/65 sm:w-60 sm:text-xs">
+                  Bring your ideas to life and build the digital presence to compete and lead in your market.
+                </p>
+                <h1 className="grid grid-cols-[auto_auto] items-start gap-x-6 text-left font-bold uppercase">
+                  <span className="hero-word text-[#FFC400] text-[clamp(3.5rem,7vw,7rem)]">From</span>
+                  <span className="hero-word text-[clamp(3.5rem,7vw,7rem)]">First</span>
+                  <span className="hero-copy mt-3 max-w-36 whitespace-normal text-[10px] font-normal normal-case leading-relaxed tracking-[0.12em] text-white/65 sm:text-xs">
+                    Strategy, innovation and speed in one file
+                  </span>
+                  <span className="text-[clamp(3.5rem,5vw,5rem)] hero-word">Contact</span>
+                </h1>
+              </div>
             </div>
           </div>
-
-          <div className="hero-copy flex w-full max-w-[420px] flex-col items-start gap-4 text-left lg:mt-3 lg:max-w-[300px] lg:gap-7">
-            <p className="font-karla text-sm leading-relaxed text-white/80 md:text-base">
-              A Kigali Studio that Builds Brands, Websites and Marketing. Delivered
-              fast in one place with personal touch.
-            </p>
-          
-            <div className="flex w-full max-w-[300px] flex-col lg:mt-5 lg:max-w-[260px]">
-              {[
-                { number: "7+", label: "Years of expertise" },
-                { number: "100+", label: "Brands amplified" },
-                { number: "300K+", label: "Impressions generated" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex items-center justify-between border-b border-white/15 py-3"
-                >
-                  <span className="font-karla text-sm text-white/55">
-                    {stat.label}
-                  </span>
-            
-                  <span className="font-karla text-xl font-semibold text-white">
-                    {stat.number}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
-
-        {/* <ol className="absolute bottom-8 right-6 flex w-[calc(100%_-_3rem)] flex-col gap-3 text-white/90 md:bottom-12 md:right-12 md:w-[31rem]">
-          {services.map((service, index) => (
-            <li
-              key={service}
-              className="service-item flex items-center justify-between gap-3 font-karla text-sm tracking-wide md:text-base"
-            >
-              <span className="shrink-0 text-yellow-400">
-                //{String(index + 1).padStart(2, "0")}
-              </span>
-              <span
-                aria-hidden="true"
-                className="service-line h-px min-w-5 flex-1 bg-white/40"
-              />
-              <span className="shrink-0 text-right">{service}</span>
-            </li>
-          ))}
-        </ol> */}
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 md:bottom-12">
+          <Link
+            href="/portfolio"
+            aria-label="Explore our work"
+            className="float-button group flex h-12 w-12 gap-5 items-center justify-start overflow-hidden rounded-full border border-white/30 bg-white/10 px-3 font-karla text-sm font-bold uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(0,0,0,0.25)] backdrop-blur-md transition-[width,background-color,border-color] duration-300 hover:w-48 hover:border-white/50 hover:bg-white/20 focus-visible:w-48 focus-visible:border-white/50 focus-visible:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            <BriefcaseBusiness aria-hidden="true" className="h-5 w-5 shrink-0" />
+            <span className="whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+              Explore works
+            </span>
+          </Link>
+        </div>            
       </section>
 
       <div className="about grid w-full grid-cols-1 gap-8 bg-white p-6 md:grid-cols-2 md:gap-12 md:px-12 md:py-24">
-        <h1 className="about-title max-w-2xl font-karla text-3xl font-bold leading-tight tracking-tight text-[#01034F] md:text-6xl">
+        <h1 className="about-title max-w-2xl font-karla text-3xl font-bold leading-tight tracking-tight text-[#030912] md:text-6xl">
           We creatively bring your ideas into reality.
         </h1>
         <div className="flex max-w-xl flex-col items-start gap-6">
@@ -187,7 +197,7 @@ export default function Home() {
           </p>
           <Link
             href="/about"
-            className="about-item rounded-full bg-[#01034F] px-6 py-3 font-karla text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#01034F]/90"
+            className="about-item rounded-full bg-[#030912] px-6 py-3 font-karla text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#061321]"
           >
             Discover more
           </Link>

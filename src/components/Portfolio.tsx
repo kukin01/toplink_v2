@@ -10,9 +10,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const portfolio = [
   {
-    slug: "pictures-from-a-fal",
+    slug: "pictures-from-a-Far",
     src: "/portfolio/port-1.png",
-    name: "Pictures from a fal",
+    name: "Pictures from a Far",
     category: "Featured Project",
     description:
       "A creative project showcasing thoughtful visual direction, composition, and design. Discover how the ideas come together to create a distinctive visual experience.",
@@ -104,7 +104,7 @@ export default function Portfolio() {
     <section
       ref={sectionRef}
       id="portfolio"
-      className="w-full overflow-hidden bg-[#01034F] px-5 py-16 text-white sm:px-8 md:px-12 md:py-24"
+      className="w-full overflow-hidden bg-[#030912] px-5 py-16 text-white sm:px-8 md:px-12 md:py-24"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 flex flex-col justify-between gap-5 md:mb-12 md:flex-row md:items-end">
@@ -112,7 +112,7 @@ export default function Portfolio() {
 
             <h2 className="font-karla text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Our recent works
-              <span className="text-[#F5DC38]">.</span>
+              <span className="text-[#FFC400]">.</span>
             </h2>
           </div>
 
@@ -131,7 +131,7 @@ export default function Portfolio() {
               key={project.slug}
               className="portfolio-card absolute inset-0 grid grid-cols-1 overflow-hidden rounded-[24px] bg-white shadow-2xl sm:rounded-[30px] md:grid-cols-[1.15fr_0.85fr]"
             >
-              <div className="relative min-h-0 overflow-hidden bg-[#080A60]">
+              <div className="relative min-h-0 overflow-hidden bg-[#061321]">
                 <Image
                   src={project.src}
                   alt={project.name}
@@ -141,11 +141,11 @@ export default function Portfolio() {
                   className="object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#01034F]/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030912]/40 via-transparent to-transparent" />
               </div>
 
-              <div className="flex min-h-0 flex-col justify-center bg-white px-6 py-7 text-[#01034F] sm:px-9 sm:py-9 lg:px-12 lg:py-12">
-                <p className="mb-4 font-inter text-xs font-bold tracking-[0.2em] text-yellow-400">
+              <div className="flex min-h-0 flex-col justify-center bg-white px-6 py-7 text-[#030912] sm:px-9 sm:py-9 lg:px-12 lg:py-12">
+                <p className="mb-4 font-inter text-xs font-bold tracking-[0.2em] text-[#FFC400]">
                   {project.category}
                 </p>
 
@@ -153,13 +153,13 @@ export default function Portfolio() {
                   {project.name}
                 </h3>
 
-                <p className="mb-7 max-w-md font-inter text-sm leading-7 text-[#01034F]/65 sm:text-base">
+                <p className="mb-7 max-w-md font-inter text-sm leading-7 text-[#030912]/65 sm:text-base">
                   {project.description}
                 </p>
 
                 <Link
                   href="/portfolio"
-                  className="group inline-flex w-fit items-center gap-3 border-b border-[#01034F]/30 pb-2 font-karla text-base font-bold text-[#01034F] transition-colors duration-300 hover:border-[#B49A00] hover:text-[#9B8700]"
+                  className="group inline-flex w-fit items-center gap-3 border-b border-[#1B354D] pb-2 font-karla text-base font-bold text-[#030912] transition-colors duration-300 hover:border-[#E5AD00] hover:text-[#E5AD00]"
                 >
                   Explore More
 
@@ -176,7 +176,7 @@ export default function Portfolio() {
         <div className="mt-12 flex justify-center md:mt-14">
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-3 rounded-full border border-white/25 px-7 py-3.5 font-karla text-base font-semibold text-white transition-all duration-300 hover:border-[#F5DC38] hover:bg-[#F5DC38] hover:text-[#01034F]"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#1B354D] px-7 py-3.5 font-karla text-base font-semibold text-white transition-all duration-300 hover:border-[#FFC400] hover:bg-[#FFC400] hover:text-[#030912]"
           >
             View All Projects
 
