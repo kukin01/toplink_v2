@@ -173,7 +173,7 @@ export default function Home() {
           <Link
             href="/portfolio"
             aria-label="Explore our work"
-            className="float-button group flex h-12 w-12 gap-5 items-center justify-start overflow-hidden rounded-full border border-white/30 bg-white/10 px-3 text-sm font-bold uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(0,0,0,0.25)] backdrop-blur-md transition-[width,background-color,border-color] duration-300 hover:w-48 hover:border-white/50 hover:bg-white/20 focus-visible:w-48 focus-visible:border-white/50 focus-visible:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="float-button group flex h-12 w-12 gap-5 items-center justify-start overflow-hidden rounded-full border-1 border-[#FFC400] bg-white/10 px-3 text-sm font-bold uppercase tracking-wide text-white shadow-[0_12px_30px_rgba(0,0,0,0.25),0_0_20px_rgba(255,196,0,0.8)] backdrop-blur-md transition-[width,background-color,border-color] duration-300 hover:w-48 hover:border-white/50 hover:bg-white/20 focus-visible:w-48 focus-visible:border-white/50 focus-visible:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             <BriefcaseBusiness aria-hidden="true" className="h-5 w-5 shrink-0" />
             <span className="whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
