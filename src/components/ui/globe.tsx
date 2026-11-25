@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Color,
   Scene,
@@ -9,10 +9,9 @@ import {
   Group,
   PerspectiveCamera,
   Vector3,
-  MathUtils,
 } from "three";
 import ThreeGlobe from "three-globe";
-import { useThree, Canvas, extend, useFrame } from "@react-three/fiber";
+import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/components/data/globe.json";
 
@@ -66,13 +65,19 @@ export type GlobeConfig = {
 interface WorldProps {
   globeConfig: GlobeConfig;
   data: Position[];
+  onReady?: () => void;
 }
 
-let numbersOfRings = [0];
-
-export function Globe({ globeConfig, data }: WorldProps) {
+export function Globe({
+  globeConfig,
+  data,
+  onReady,
+}: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
   const groupRef = useRef<Group | null>(null);
+  const hasCalledReady = useRef(false);
+  const onReadyRef = useRef(onReady);
+
   const [isInitialized, setIsInitialized] = useState(false);
 
   const defaultProps = {
@@ -91,6 +96,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
     maxRings: 3,
     ...globeConfig,
   };
+
+  useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
 
   useEffect(() => {
     if (!globeRef.current && groupRef.current) {
@@ -126,7 +135,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (!globeRef.current || !isInitialized || !data) return;
 
-    const arcs = data;
     const points: {
       size: number;
       order: number;
@@ -135,8 +143,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
       lng: number;
     }[] = [];
 
-    for (let i = 0; i < arcs.length; i++) {
-      const arc = arcs[i];
+    for (let i = 0; i < data.length; i++) {
+      const arc = data[i];
 
       points.push({
         size: defaultProps.pointSize,
@@ -206,8 +214,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
         (defaultProps.arcTime * defaultProps.arcLength) /
-          defaultProps.rings,
+          defaultProps.rings
       );
+
+    if (!hasCalledReady.current) {
+      hasCalledReady.current = true;
+      onReadyRef.current?.();
+    }
   }, [
     isInitialized,
     data,
@@ -231,7 +244,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       const newNumbersOfRings = genRandomNumbers(
         0,
         data.length,
-        Math.floor((data.length * 4) / 5),
+        Math.floor((data.length * 4) / 5)
       );
 
       const ringsData = data
@@ -252,13 +265,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
 }
 
 export function WebGLRendererConfig() {
-  const { gl, size } = useThree();
+  const { gl } = useThree();
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl]);
 
   return null;
 }
@@ -266,13 +277,32 @@ export function WebGLRendererConfig() {
 export function World(props: WorldProps) {
   const { globeConfig } = props;
 
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
+  const scene = useMemo(() => {
+    const newScene = new Scene();
+    newScene.fog = new Fog(0xffffff, 400, 2000);
+    return newScene;
+  }, []);
+
+  const camera = useMemo(
+    () => new PerspectiveCamera(50, aspect, 180, 1800),
+    []
+  );
+
+  const leftLightPosition = useMemo(
+    () => new Vector3(-400, 100, 400),
+    []
+  );
+
+  const topLightPosition = useMemo(
+    () => new Vector3(-200, 500, 200),
+    []
+  );
 
   return (
     <Canvas
+      dpr={[1, 1.5]}
       scene={scene}
-      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
+      camera={camera}
     >
       <WebGLRendererConfig />
 
@@ -283,17 +313,17 @@ export function World(props: WorldProps) {
 
       <directionalLight
         color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
+        position={leftLightPosition}
       />
 
       <directionalLight
         color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
+        position={topLightPosition}
       />
 
       <pointLight
         color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
+        position={topLightPosition}
         intensity={0.8}
       />
 
@@ -316,12 +346,15 @@ export function World(props: WorldProps) {
 export function hexToRgb(hex: string) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
+  hex = hex.replace(
+    shorthandRegex,
+    function (m, r, g, b) {
+      return r + r + g + g + b + b;
+    }
+  );
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-    hex,
+    hex
   );
 
   return result
@@ -336,9 +369,9 @@ export function hexToRgb(hex: string) {
 export function genRandomNumbers(
   min: number,
   max: number,
-  count: number,
+  count: number
 ) {
-  const arr = [];
+  const arr: number[] = [];
 
   while (arr.length < count) {
     const r = Math.floor(Math.random() * (max - min)) + min;

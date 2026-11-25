@@ -41,13 +41,30 @@ export default function Home() {
         });
   
         heroTimeline
-          .from(".hero-word", {
-            y: 70,
-            autoAlpha: 0,
-            duration: 0.85,
-            stagger: 0.2,
-            clearProps: "all",
-          })
+          .fromTo(
+            ".globe-slide",
+            {
+              y: 110,
+            },
+            {
+              y: 0,
+              duration: 2.4,
+              ease: "power3.out",
+              force3D: true,
+            },
+            0
+          )
+          .from(
+            ".hero-word",
+            {
+              y: 70,
+              autoAlpha: 0,
+              duration: 0.85,
+              stagger: 0.2,
+              clearProps: "all",
+            },
+            0
+          )
           .from(
             ".hero-copy",
             {
@@ -59,42 +76,7 @@ export default function Home() {
             },
             "-=0.2"
           )
-          .from(
-            ".hero-detail",
-            {
-              y: 20,
-              autoAlpha: 0,
-              duration: 0.65,
-              clearProps: "all",
-            },
-            "-=0.2"
-          )
-          .from(
-            ".hero-cta",
-            {
-              y: 25,
-              autoAlpha: 0,
-              duration: 0.7,
-              clearProps: "all",
-            },
-            "-=0.2"
-          );
-        
-          gsap.fromTo(
-            ".globe-entrance",
-            {
-              y: 90,
-              autoAlpha: 0,
-            },
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 2.2,
-              ease: "power3.out",
-              delay: 0.15,
-            }
-          );
-
+  
         ScrollTrigger.create({
           trigger: ".hero-section",
           start: "top top",
@@ -146,7 +128,23 @@ export default function Home() {
     },
     { scope: container }
   );
-
+  const animateGlobe = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.set(".globe-slide", { y: 0 });
+      return;
+    }
+  
+    gsap.fromTo(
+      ".globe-slide",
+      { y: 100 },
+      {
+        y: 0,
+        duration: 2.,
+        ease: "power3.out",
+        overwrite: "auto",
+      }
+    );
+  };
 
   return (
     <main
@@ -154,9 +152,11 @@ export default function Home() {
       className="flex flex-col justify-center items-center overflow-hidden"
     >
       <section className="hero-section relative h-[svh] bg-[#030912] min-h-176 w-full overflow-hidden md:h-screen md:min-h-176">
-        <div className="pointer-events-none absolute inset-0 z-0overflow-hidden">
-          <div className="globe-entrance absolute right-0 top-1/2 h-162.5 w-162.5 -translate-y-1/2 translate-x-[48%] sm:h-[750px] sm:w-[750px] sm:translate-x-[42%] lg:h-[900px] lg:w-[900px] lg:translate-x-[38%]">
-            <GlobeDemo />
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute right-0 top-1/2 h-162.5 w-162.5 -translate-y-1/2 translate-x-[48%] sm:h-[750px] sm:w-[750px] sm:translate-x-[42%] lg:h-[900px] lg:w-[900px] lg:translate-x-[38%]">
+            <div className="globe-slide h-full w-full">
+              <GlobeDemo onReady={animateGlobe}/>
+            </div>
           </div>
         </div>
         {/* <WavesBackground /> */}
