@@ -36,7 +36,7 @@ export default function Footer() {
             className="h-24 w-auto sm:h-32 md:h-40"
           />
 
-          <div className="mt-8 break-words text-md sm:text-lg md:text-xl">
+          <div className="mt-8 wrap-break-words text-md sm:text-lg md:text-xl">
             <a
               href="tel:+250780716326"
               className="block text-white/90 transition-colors duration-300 hover:text-[#FFC400]"
@@ -94,7 +94,7 @@ export default function Footer() {
               {footerServices.map((service) => (
                 <li key={service}>
                   <a
-                    href="#services"
+                    href="/services"
                     className="text-md transition-colors duration-300 hover:text-white sm:text-lg md:text-xl"
                   >
                     {service}

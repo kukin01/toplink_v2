@@ -49,7 +49,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[100] px-4 pt-4 sm:px-6">
+      <header className="fixed inset-x-0 top-0 z-100 px-4 pt-4 sm:px-6">
         <nav
           className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-3 transition-all gap-3 duration-500 sm:px-6 ${
             navSurface
@@ -145,7 +145,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="relative z-[120] flex h-10 w-10 items-center justify-center rounded-full border border-[#1B354D] bg-[#0D2238] text-white transition-colors hover:text-[#FFC400] md:hidden"
+            className="relative z-120 flex h-10 w-10 items-center justify-center rounded-full border border-[#1B354D] bg-[#0D2238] text-white transition-colors hover:text-[#FFC400] md:hidden"
           >
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
@@ -153,7 +153,7 @@ export default function Navbar() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[90] bg-[#030912]/95 px-6 pb-10 pt-28 backdrop-blur-2xl transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-90 bg-[#030912]/95 px-6 pb-10 pt-28 backdrop-blur-2xl transition-all duration-500 md:hidden ${
           menuOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-4 opacity-0"
@@ -182,7 +182,7 @@ export default function Navbar() {
                     </span>
 
                     <span
-                      className={`font-karla text-3xl font-semibold transition-colors ${
+                      className={`font-karla text-xl font-semibold transition-colors ${
                         active
                           ? "text-[#FFC400]"
                           : "text-white group-hover:text-[#FFC400]"

@@ -14,6 +14,7 @@ import Partners from "@/components/Partners";
 import ChooseUs from "@/components/ChooseUs";
 import FAQ from "@/components/FAQ";
 import { BriefcaseBusiness } from "lucide-react";
+import GlobeDemo from "@/components/globe-demo";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -78,6 +79,21 @@ export default function Home() {
             },
             "-=0.2"
           );
+        
+          gsap.fromTo(
+            ".globe-entrance",
+            {
+              y: 90,
+              autoAlpha: 0,
+            },
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 2.2,
+              ease: "power3.out",
+              delay: 0.15,
+            }
+          );
 
         ScrollTrigger.create({
           trigger: ".hero-section",
@@ -137,10 +153,13 @@ export default function Home() {
       ref={container}
       className="flex flex-col justify-center items-center overflow-hidden"
     >
-      <section className="hero-section relative h-[100svh] bg-[#030912] min-h-[44rem] w-full overflow-hidden md:h-screen md:min-h-[40rem]">
-        <WavesBackground />
-
-
+      <section className="hero-section relative h-[svh] bg-[#030912] min-h-176 w-full overflow-hidden md:h-screen md:min-h-176">
+        <div className="pointer-events-none absolute inset-0 z-0overflow-hidden">
+          <div className="globe-entrance absolute right-0 top-1/2 h-162.5 w-162.5 -translate-y-1/2 translate-x-[48%] sm:h-[750px] sm:w-[750px] sm:translate-x-[42%] lg:h-[900px] lg:w-[900px] lg:translate-x-[38%]">
+            <GlobeDemo />
+          </div>
+        </div>
+        {/* <WavesBackground /> */}
         <div className="absolute inset-0 flex items-center px-5 sm:px-8 lg:px-12">
           <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-4 md:grid-cols-[0.2fr_auto] md:gap-10 lg:gap-20">
             <div className="hero-title">
@@ -150,6 +169,7 @@ export default function Home() {
               <h1 className="hero-word text-[clamp(3.5rem,8vw,8rem)] font-bold uppercase leading-[0.85] tracking-[-0.075em] text-white">
                 Brand
               </h1>
+              <span className="text-white/65 text-[13px] tracking-[0.12em] leading-relaxed text-sm hero-copy">Build in Rwanda, Manage from anywhere</span>
             </div>
 
             <div className="flex flex-col items-start gap-4 md:items-end md:text-right">        

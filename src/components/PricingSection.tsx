@@ -37,7 +37,7 @@ export default function PricingSection() {
     <section className="w-full bg-white px-6 py-5 md:px-12 md:py-15">
       <div className="mx-auto max-w-7xl">
         <header className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <span className="py-3 px-5 border-1  border-[#1B354D] rounded-[2rem]">Pricing plan</span>
+          <span className="py-3 px-5 border  border-[#1B354D] rounded-[2rem]">Pricing plan</span>
           <h2 className="mt-4 font-karla text-3xl font-bold leading-tight tracking-tight text-[#030912] md:text-4xl">
             Explore Our Plans and Pricing
           </h2>
@@ -72,24 +72,26 @@ export default function PricingSection() {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 items-stretch gap-2 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 items-stretch gap-2 md:grid-cols-2 xl:grid-cols-4">
           {plans.map((plan) => (
             <article
               key={plan.name}
               className="flex h-full rounded-2xl flex-col border border-[#1B354D] bg-[#030912] p-3 text-white"
             >
               <div className="rounded-2xl bg-white/10 p-6">
-                <h3 className="font-karla text-md font-semibold text-white/80">
-                  {plan.name}
-                </h3>
-                <p className="mt-5 flex items-baseline gap-2 font-karla">
-                  <span className="text-4xl font-bold tracking-tight md:text-5xl">
-                    $--
-                  </span>
-                  <span className="text-sm text-white/70">
-                    / {isYearly ? "year" : "month"}
-                  </span>
-                </p>
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="shrink-0 font-karla text-md font-semibold text-white/80">
+                    {plan.name}
+                  </h3>
+                  <p className="flex items-baseline gap-2 whitespace-nowrap font-karla">
+                    <span className="text-3xl font-bold tracking-tight xl:text-4xl">
+                      $--
+                    </span>
+                    <span className="text-sm text-white/70">
+                      / {isYearly ? "year" : "month"}
+                    </span>
+                  </p>
+                </div>
                 <p className="mt-4 min-h-12 font-karla text-sm leading-relaxed text-white/75">
                   {plan.description}
                 </p>

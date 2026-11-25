@@ -124,7 +124,7 @@ export default function Portfolio() {
 
         <div
           ref={showcaseRef}
-          className="relative h-[72svh] min-h-[540px] max-h-[760px] w-full"
+          className="relative h-[72svh] min-h-135 max-h-190 w-full"
         >
           {portfolio.map((project, index) => (
             <article

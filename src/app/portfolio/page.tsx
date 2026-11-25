@@ -2,12 +2,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const categories = ["Web Development", "Marketing", "Brand Identity"];
+const allCategories = [
+  "All",
+  ...categories,
+  "Content Creation",
+  "SEO",
+  "Ad Campaign",
+];
 
 const projects = [
   {
@@ -50,6 +57,13 @@ const projects = [
 
 export default function PortfolioPage() {
   const pageRef = useRef<HTMLElement>(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) =>
+          project.categories.includes(selectedCategory)
+        );
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -118,7 +132,27 @@ export default function PortfolioPage() {
             </p>
           </div>
 
-          <div className="mt-8 h-px w-full bg-[#1B354D]/15 md:mt-10" />
+          <div
+            aria-label="Filter projects by category"
+            className="mt-12 flex flex-wrap items-center gap-2"
+          >
+            {allCategories.map((category) => (
+              <button
+              key={category}
+              type="button"
+              aria-pressed={selectedCategory === category}
+              onClick={() => setSelectedCategory(category)}
+              className={`rounded-full border bg-white px-4 py-2 font-inter text-xs font-semibold transition-colors ${
+                selectedCategory === category
+                ? "border-2 border-[#030912] text-[#030912]"
+                : "border-[#1B354D]/25 text-[#030912]/65 hover:border-[#030912]"
+              }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <div className="mt-3 h-px w-full bg-[#1B354D]/15 md:mt-5" />
         </div>
       </section>
 
@@ -130,82 +164,88 @@ export default function PortfolioPage() {
             </p> */}
           {/* </div> */}
 
-          <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-12 md:gap-y-24">
-            {projects.map((project, index) => {
-              const isLarge = project.layout === "large";
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-12 md:gap-y-24">
+              {filteredProjects.map((project, index) => {
+                const isLarge = project.layout === "large";
 
-              return (
-                <article
-                  key={project.name}
-                  className={`portfolio-project group ${
-                    index === 0
-                      ? "md:col-span-7"
-                      : index === 1
-                        ? "md:col-span-5 md:mt-28"
-                        : index === 2
-                          ? "md:col-span-5"
-                          : "md:col-span-7 md:mt-28"
-                  }`}
-                >
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
+                return (
+                  <article
+                    key={project.name}
+                    className={`portfolio-project group ${
+                      index === 0
+                        ? "md:col-span-7"
+                        : index === 1
+                          ? "md:col-span-5 md:mt-28"
+                          : index === 2
+                            ? "md:col-span-5"
+                            : "md:col-span-7 md:mt-28"
+                    }`}
                   >
-                    <div
-                      className={`relative w-full overflow-hidden bg-[#F0F0F0] ${
-                        isLarge
-                          ? "aspect-[5/4]"
-                          : "aspect-[4/5] md:aspect-[4/5]"
-                      }`}
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
                     >
-                      <Image
-                        src={project.src}
-                        alt={project.name}
-                        fill
-                        sizes={
+                      <div
+                        className={`relative w-full overflow-hidden rounded-3xl bg-[#F0F0F0] ${
                           isLarge
-                            ? "(max-width: 768px) 100vw, 60vw"
-                            : "(max-width: 768px) 100vw, 40vw"
-                        }
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                      />
+                            ? "aspect-5/4"
+                            : "aspect-4/5 md:aspect-4/5"
+                        }`}
+                      >
+                        <Image
+                          src={project.src}
+                          alt={project.name}
+                          fill
+                          sizes={
+                            isLarge
+                              ? "(max-width: 768px) 100vw, 60vw"
+                              : "(max-width: 768px) 100vw, 40vw"
+                          }
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        />
 
-                      <div className="absolute inset-0 bg-[#030912]/0 transition-colors duration-500 group-hover:bg-[#030912]/10" />
+                        <div className="absolute inset-0 bg-[#030912]/0 transition-colors duration-500 group-hover:bg-[#030912]/10" />
 
-                      <div className="absolute bottom-5 right-5 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-white text-[#030912] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <ArrowUpRight size={21} />
-                      </div>
-                    </div>
-
-                    <div className="mt-5 flex items-start justify-between gap-4">
-                      <div>
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          {project.categories.map((category) => (
-                            <span
-                              key={category}
-                              className="rounded-full border border-[#1B354D]/25 px-3 py-1 font-inter text-[10px] font-bold uppercase tracking-[0.12em] text-[#030912]/70"
-                            >
-                              {category}
-                            </span>
-                          ))}
+                        <div className="absolute bottom-5 right-5 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-white text-[#030912] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          <ArrowUpRight size={21} />
                         </div>
-
-                        <h2 className="font-karla text-2xl font-bold transition-colors duration-300 sm:text-3xl">
-                          {project.name}
-                        </h2>
-
-                        <p className="mt-3 max-w-md font-inter text-sm leading-7 text-[#030912]/60">
-                          {project.description}
-                        </p>
                       </div>
-                    </div>
-                  </a>
-                </article>
-              );
-            })}
-          </div>
+
+                      <div className="mt-5 flex items-start justify-between gap-4">
+                        <div>
+                          <div className="mb-3 flex flex-wrap gap-2">
+                            {project.categories.map((category) => (
+                              <span
+                                key={category}
+                                className="rounded-full border border-[#1B354D]/25 px-3 py-1 font-inter text-[10px] font-bold uppercase tracking-[0.12em] text-[#030912]/70"
+                              >
+                                {category}
+                              </span>
+                            ))}
+                          </div>
+
+                          <h2 className="font-karla text-2xl font-bold transition-colors duration-300 sm:text-3xl">
+                            {project.name}
+                          </h2>
+
+                          <p className="mt-3 max-w-md font-inter text-sm leading-7 text-[#030912]/60">
+                            {project.description}
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="font-inter text-sm text-[#030912]/65">
+              No projects found in this category yet.
+            </p>
+          )}
         </div>
       </section>
 
