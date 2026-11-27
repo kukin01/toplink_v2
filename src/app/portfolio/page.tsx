@@ -7,12 +7,12 @@ import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const categories = ["Web Development", "Marketing", "Brand Identity"];
+const categories = ["Web Development", "Brand Identity", "Marketing",];
 const allCategories = [
   "All",
   ...categories,
-  "Content Creation",
   "SEO",
+  "Content Creation",
   "Ad Campaign",
 ];
 
